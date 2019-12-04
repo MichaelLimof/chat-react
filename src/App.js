@@ -26,10 +26,47 @@ const theme = createMuiTheme({
       dark: '#512da8',
       contrastText: '#3f51b5'
     }
-  }, typography: {
-    useNextVariants: true,
-  }
+  },
 
+  typography: {
+    useNextVariants: true,
+  },
+  form: {
+    textAlign: 'center',
+  },
+  image: {
+    margin: '20px auto 20px auto'
+  },
+
+  spreadThis: {
+    typography: {
+      useNextVariants: true
+    },
+
+    pageTitle: {
+      margin: '10px auto 10px auto'
+    },
+
+    textField: {
+      margin: '10px auto 10px auto',
+    },
+    button: {
+      marginTop: 50,
+      position: 'relative'
+    },
+    form: {
+      textAlign: 'center',
+    },
+    customError: {
+      color: 'red',
+      fontSize: '0.8rem',
+      marginTop: 10
+    },
+    progress: {
+      position: 'absolute'
+    }
+
+  }
 })
 
 function App() {

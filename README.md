@@ -1,3 +1,15 @@
+ /*  "@material-ui/core": "^4.5.1",
+    "axios": "^0.19.0",
+    "dayjs": "^1.8.16",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0"*/
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

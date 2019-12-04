@@ -6,37 +6,17 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import axios from 'axios';
 
 
 
-const styles = {
-    form: {
-        textAlign: 'center',
-    },
-    image: {
-        margin: '20px auto 20px auto'
-    },
+const styles = (theme) => ({
+    ...theme.spreadThis
+})
 
-    typography: {
-        useNextVariants: true,
-    },
-    pageTitle: {
-        margin: '10px auto 10px auto'
-    },
 
-    textField: {
-        margin: '10px auto 10px auto',
-    },
-    button: {
-        marginTop: 50,
-    },
-    customError: {
-        color: 'red',
-        fontSize: '0.8rem',
-    }
-
-}
 
 
 
@@ -64,6 +44,7 @@ class login extends Component {
         axios.post('/login', userData)
             .then(res => {
                 console.log(res.data);
+                localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`)
                 this.setState({
                     loading: false
                 })
@@ -124,15 +105,27 @@ class login extends Component {
                         <Button type="submit"
                             variant="contained"
                             color="primary"
-                            className={classes.button} >Login</Button>
+                            className={classes.button}
+                            disabled={loading}
 
+                        >
+                            Login
+                            {loading && (
+                                <CircularProgress size={30} className={classes.progress} />
+                            )}
+                        </Button>
+                        <br></br><br></br>
+                        <small>
+
+                            Não possui uma Conta? Cadastre-se <Link href="/signup.js">aqui!</Link>
+                        </small>
                     </form>
                 </Grid>
                 <Grid item sm />
 
 
             </Grid>
-        )
+        );
     }
 }
 
